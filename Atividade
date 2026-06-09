@@ -1,0 +1,42 @@
+
+package sistemadenotificacoes;
+
+import java.util.Scanner;
+public class SistemadeNotificacoes {
+
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escolha uma opção");
+        System.out.println("1 - Email");
+        System.out.println("2 - SMS");
+        System.out.println("3 - Whatsapp");
+        
+        int opcao = sc.nextInt();
+        sc.nextLine();
+        
+        System.out.println("Digite a mensagem: ");
+        String mensagem = sc.nextLine();
+        
+        Notificacao notificacao = null;
+        
+        switch (opcao){
+            case 1:
+                notificacao = new NotificacaoEmail();
+                break;
+            case 2:
+                notificacao = new NotificacaoSMS();
+                break;
+            case 3:
+                notificacao = new NotificacaoWhatsapp();
+                break;
+            default:
+                System.out.println("Opção inválida");
+                return;
+            
+        }
+        ServicoNotificacao servico = new ServicoNotificacao();
+        servico.notificarCliente(notificacao, mensagem);
+    }
+    
+}
