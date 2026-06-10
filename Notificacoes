@@ -1,0 +1,8 @@
+
+package sistemadenotificacoes;
+
+
+public interface Notificacoes {
+    void enviar(String mensagem);
+    
+}
